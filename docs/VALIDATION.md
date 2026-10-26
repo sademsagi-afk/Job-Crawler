@@ -49,3 +49,9 @@ The initial proxy restrictions changed during the session. Final API responses, 
 - **Environment publication:** reusable instructions/domain requirements saved for review; only the product's publish operation can activate a snapshot. Fresh-task restoration was not tested.
 
 Follow [OPERATIONS.md](OPERATIONS.md) to complete these steps. Never classify the hosted pipeline as fully configured until they have actually passed.
+
+## GitHub publication blocker
+
+The initial implementation was committed on local branch `main`. GitHub rejected `git push -u origin main` with HTTP 403: connected identity `austinmarklord-web` has no write permission to `sademsagi-afk/Job-Crawler`. Read access worked; that did not establish write access. No remote branch was created and GitHub CI/scheduling could not be verified. Grant that identity collaborator access or connect an account authorized to write to the target repository, then push `main`. Do not paste a token into chat.
+
+A portable `artifacts/job-hunter.bundle` preserves the local commit/history and can be cloned with Git. Source files also remain in the workspace. Local-only commit restoration in a newly published cloud task was not verified; push access and snapshot/restoration remain external follow-ups.
