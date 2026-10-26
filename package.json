@@ -1,0 +1,29 @@
+{
+  "name": "personal-remote-job-hunter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Conservative, evidence-based daily remote engineering job discovery",
+  "engines": {
+    "node": ">=22.21.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "start": "node --use-env-proxy --env-file-if-exists=.env dist/src/cli.js",
+    "dry-run": "npm start -- run --dry-run",
+    "fixtures": "npm start -- run --dry-run --fixtures",
+    "sources:check": "npm start -- sources:check"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.12",
+    "@types/node": "22.19.7",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

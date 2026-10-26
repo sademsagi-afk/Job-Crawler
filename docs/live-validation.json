@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-10-26T16:40:17.884Z",
+  "dryRun": true,
+  "rawJobs": 1009,
+  "uniqueJobs": 1009,
+  "candidates": 15,
+  "selected": 10,
+  "sections": {
+    "disclosed": 1,
+    "undisclosed": 9,
+    "salary-review": 0
+  },
+  "health": [
+    {
+      "source": "himalayas",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 303,
+      "invalid": 0,
+      "status": "degraded",
+      "detail": "Country + UTC offset semantics validated; pubDate is update time, not publication. Search page budget 10/query reached; coverage is partial."
+    },
+    {
+      "source": "remotive",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 10,
+      "invalid": 0,
+      "status": "ok",
+      "detail": "Remotive links and attribution retained; feed is delayed 24h. Salary units are never inferred from provider conventions."
+    },
+    {
+      "source": "greenhouse:canonical",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 314,
+      "invalid": 0,
+      "status": "ok",
+      "detail": "Public API response validated."
+    },
+    {
+      "source": "ashby:posthog",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 11,
+      "invalid": 0,
+      "status": "ok",
+      "detail": "Public API response validated."
+    },
+    {
+      "source": "ashby:supabase",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 64,
+      "invalid": 0,
+      "status": "ok",
+      "detail": "Public API response validated."
+    },
+    {
+      "source": "lever:palantir",
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "count": 307,
+      "invalid": 0,
+      "status": "ok",
+      "detail": "Public API response validated."
+    },
+    {
+      "source": "himalayas:shortlist-check",
+      "status": "ok",
+      "count": 9,
+      "invalid": 0,
+      "checkedAt": "2026-10-26T16:40:17.884Z",
+      "detail": "9 open listings rechecked; 0 failed/closed checks excluded."
+    }
+  ],
+  "notes": [
+    "Real public-API payloads collected in this session; configured response caches reused on subsequent checks.",
+    "No Supabase connection, email request or application submission in this dry-run.",
+    "Himalayas coverage intentionally capped at ten pages per query."
+  ]
+}

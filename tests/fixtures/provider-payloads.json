@@ -1,0 +1,138 @@
+{
+  "himalayas": {
+    "totalCount": 2,
+    "jobs": [
+      {
+        "guid": "https://himalayas.app/jobs/synthetic-node",
+        "title": "Node.js Backend Engineer",
+        "companyName": "SYNTHETIC Marketplace Co",
+        "description": "Build TypeScript and PostgreSQL REST APIs, authentication and payments. 4+ years of professional experience.",
+        "applicationLink": "https://example.com/jobs/synthetic-node",
+        "pubDate": 1792886400,
+        "expiryDate": 1798761600,
+        "employmentType": "Full Time",
+        "locationRestrictions": [],
+        "timezoneRestrictions": [
+          1
+        ],
+        "minSalary": 48000,
+        "maxSalary": 72000,
+        "currency": "USD",
+        "salaryPeriod": "yearly"
+      },
+      {
+        "title": "Backend Engineer",
+        "companyName": "SYNTHETIC US only",
+        "description": "TypeScript Node.js",
+        "applicationLink": "https://example.com/jobs/us",
+        "locationRestrictions": [
+          "United States"
+        ],
+        "timezoneRestrictions": [
+          1
+        ],
+        "guid": "https://himalayas.app/companies/fixture/jobs/us"
+      }
+    ]
+  },
+  "remotive": {
+    "jobs": [
+      {
+        "id": 100,
+        "url": "https://remotive.com/remote-jobs/software-dev/synthetic-100",
+        "title": "Full-Stack Engineer",
+        "company_name": "SYNTHETIC Global Product",
+        "description": "React, Next.js, Node.js and Supabase. 3 years of experience.",
+        "candidate_required_location": "Worldwide",
+        "salary": "USD 36,000 - 60,000 per year",
+        "job_type": "full_time",
+        "publication_date": "2026-10-24T10:00:00"
+      },
+      {
+        "id": 101,
+        "url": "https://remotive.com/remote-jobs/software-dev/synthetic-101",
+        "title": "TypeScript Engineer",
+        "company_name": "SYNTHETIC Africa Product",
+        "description": "TypeScript and REST APIs.",
+        "candidate_required_location": "Africa",
+        "salary": "",
+        "job_type": "contract",
+        "publication_date": "2026-10-23T10:00:00Z"
+      },
+      {
+        "id": 102,
+        "url": "https://remotive.com/remote-jobs/software-dev/synthetic-102",
+        "title": "Backend Engineer",
+        "company_name": "SYNTHETIC Ambiguous Pay",
+        "description": "TypeScript Node.js",
+        "candidate_required_location": "Nigeria",
+        "salary": "$60,000 - $80,000",
+        "publication_date": "2026-10-24T10:00:00Z"
+      }
+    ]
+  },
+  "greenhouse": {
+    "jobs": [
+      {
+        "id": 200,
+        "title": "Product Engineer",
+        "absolute_url": "https://example.com/jobs/greenhouse",
+        "content": "Fully remote. Build TypeScript Node.js PostgreSQL authentication and payments. 4 years of experience.",
+        "location": {
+          "name": "Remote - EMEA"
+        },
+        "updated_at": "2026-10-25T10:00:00Z"
+      }
+    ]
+  },
+  "ashby": {
+    "jobs": [
+      {
+        "title": "Full Stack Engineer",
+        "location": "Remote - Worldwide",
+        "isRemote": true,
+        "descriptionPlain": "TypeScript Node.js React Next.js PostgreSQL REST payments. 4 years of experience.",
+        "jobUrl": "https://jobs.ashbyhq.com/fixture/synthetic-id",
+        "applyUrl": "https://jobs.ashbyhq.com/fixture/synthetic-id/application",
+        "publishedAt": "2026-10-25T10:00:00Z",
+        "employmentType": "FullTime",
+        "isListed": true
+      },
+      {
+        "id": "hidden",
+        "title": "Backend Engineer",
+        "location": "Worldwide",
+        "isRemote": true,
+        "descriptionPlain": "Node.js",
+        "jobUrl": "https://example.com/jobs/hidden",
+        "applyUrl": "https://example.com/jobs/hidden",
+        "isListed": false
+      }
+    ]
+  },
+  "lever": [
+    {
+      "id": "synthetic-lever",
+      "text": "Backend Engineer",
+      "hostedUrl": "https://jobs.lever.co/fixture/synthetic-lever",
+      "applyUrl": "https://jobs.lever.co/fixture/synthetic-lever/apply",
+      "categories": {
+        "location": "Remote - Nigeria",
+        "commitment": "Full-time",
+        "allLocations": [
+          "Remote - Nigeria"
+        ]
+      },
+      "descriptionPlain": "TypeScript Node.js PostgreSQL REST authentication. 4 years of experience.",
+      "additionalPlain": "",
+      "lists": [],
+      "workplaceType": "remote",
+      "salaryRange": {
+        "currency": "USD",
+        "interval": "monthly",
+        "min": 2500,
+        "max": 4500
+      }
+    }
+  ]
+}

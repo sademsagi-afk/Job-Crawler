@@ -1,0 +1,75 @@
+name: Discover remote engineering jobs
+on:
+  schedule:
+    # Africa/Lagos is UTC+1 year-round: 07:15 UTC = approximately 08:15 Lagos.
+    - cron: '15 7 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Preview only, inspect sources, or send the daily digest
+        type: choice
+        default: dry-run
+        options: [dry-run, sources-check, send]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: personal-job-hunter
+  cancel-in-progress: false
+jobs:
+  discover:
+    # Explicit activation prevents unconfigured schedules from failing or sending mail.
+    if: github.event_name == 'workflow_dispatch' || vars.JOB_HUNTER_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      DIGEST_FROM: ${{ secrets.DIGEST_FROM }}
+      DIGEST_TO: ${{ secrets.DIGEST_TO }}
+      MODE: ${{ github.event.inputs.mode || 'send' }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - name: Restore public API response cache
+        id: api-cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .cache/http
+          key: public-job-apis-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: public-job-apis-v1-
+      - name: Discover or preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$MODE" in
+            dry-run) npm run dry-run ;;
+            sources-check) npm run sources:check ;;
+            send)
+              # Retry after a 5-minute DB lease can expire if a runner lost connectivity.
+              # Immutable persisted payload + Resend idempotency key prevent repeat mail.
+              if npm start -- run --send; then exit 0; fi
+              sleep 360
+              npm start -- run --send
+              ;;
+            *) echo 'Unsupported workflow mode'; exit 1 ;;
+          esac
+      - name: Preserve public API cache even if delivery failed
+        if: always()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .cache/http
+          key: public-job-apis-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: job-discovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/
+          retention-days: 7

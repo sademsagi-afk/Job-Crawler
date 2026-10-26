@@ -1,0 +1,30 @@
+{
+  "himalayas": true,
+  "himalayasMaxPages": 10,
+  "remotive": true,
+  "greenhouse": [
+    {
+      "token": "canonical",
+      "company": "Canonical"
+    }
+  ],
+  "ashby": [
+    {
+      "token": "posthog",
+      "company": "PostHog"
+    },
+    {
+      "token": "supabase",
+      "company": "Supabase"
+    }
+  ],
+  "lever": [
+    {
+      "token": "palantir",
+      "company": "Palantir",
+      "region": "global"
+    }
+  ],
+  "leverMaxPages": 5,
+  "digestLimit": 10
+}
