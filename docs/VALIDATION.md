@@ -50,8 +50,8 @@ The initial proxy restrictions changed during the session. Final API responses, 
 
 Follow [OPERATIONS.md](OPERATIONS.md) to complete these steps. Never classify the hosted pipeline as fully configured until they have actually passed.
 
-## GitHub publication blocker
+## GitHub publication
 
-The initial implementation was committed on local branch `main`. GitHub rejected `git push -u origin main` with HTTP 403: connected identity `austinmarklord-web` has no write permission to `sademsagi-afk/Job-Crawler`. Read access worked; that did not establish write access. No remote branch was created and GitHub CI/scheduling could not be verified. Grant that identity collaborator access or connect an account authorized to write to the target repository, then push `main`. Do not paste a token into chat.
+On **2026-10-28**, repository write access was corrected and `git push -u origin main` succeeded. The initial implementation and its documentation are now published to `sademsagi-afk/Job-Crawler` on `main`. The earlier HTTP 403 is resolved; no replacement credentials or account switch was required.
 
-A portable `artifacts/job-hunter.bundle` preserves the local commit/history and can be cloned with Git. Source files also remain in the workspace. Local-only commit restoration in a newly published cloud task was not verified; push access and snapshot/restoration remain external follow-ups.
+The local Git bundle remains a backup. GitHub CI status, hosted Supabase, Resend delivery, scheduled execution, environment publication and fresh-task restoration are separate checks; successful Git publication does not establish any of those outcomes. Complete the external configuration and verification steps above before enabling scheduled delivery.
